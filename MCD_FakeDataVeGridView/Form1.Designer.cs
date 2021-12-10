@@ -55,6 +55,7 @@ namespace MCD_FakeDataVeGridView
             this.dgwMusteriListe.RowTemplate.Height = 24;
             this.dgwMusteriListe.Size = new System.Drawing.Size(775, 557);
             this.dgwMusteriListe.TabIndex = 0;
+            this.dgwMusteriListe.DoubleClick += new System.EventHandler(this.dgwMusteriListe_DoubleClick);
             // 
             // Form1
             // 

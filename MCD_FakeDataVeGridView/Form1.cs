@@ -16,6 +16,7 @@ namespace MCD_FakeDataVeGridView
         {
             InitializeComponent();
         }
+        Database db = new Database();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -23,7 +24,7 @@ namespace MCD_FakeDataVeGridView
             //string soyisim = FakeData.NameData.GetSurname();
             //MessageBox.Show(isim + " " + soyisim, "Fake Data İnceleme", MessageBoxButtons.OK);  
 
-            Database db = new Database();
+
             List<Musteri> musteriListe = db.musteriListele();
 
             // 1.Data bize lazım ama ekran üzerinde göstermek istemiyoruz bu gibi durumlarda columns koleksiyonu içinde ilgili kolonun id değeri veya tip prop adı verilerek Visible prop false edilmesi yeterlidir..
@@ -44,12 +45,25 @@ namespace MCD_FakeDataVeGridView
             var dgwListe = from I in musteriListe
                            select new
                            {
+                               ID = I.id,
                                Isim = I.isim,
                                Soyisim = I.soyisim,
                                TamAdi = I.tamAdi
                            };
 
             dgwMusteriListe.DataSource = dgwListe.ToList();
+        }
+
+        private void dgwMusteriListe_DoubleClick(object sender, EventArgs e)
+        {
+            int musteriID = (int)dgwMusteriListe[0, dgwMusteriListe.CurrentCell.RowIndex].Value;
+
+
+            Musteri bulunanMusteri = db.musteriListele().FindAll(i => i.id == musteriID).FirstOrDefault();
+
+            popupMesaj popup = new popupMesaj(bulunanMusteri);
+            popup.Show();
+
         }
     }
 }
