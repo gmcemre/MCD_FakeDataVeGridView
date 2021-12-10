@@ -21,7 +21,7 @@ namespace MCD_FakeDataVeGridView
         {
             //string isim = FakeData.NameData.GetFirstName();
             //string soyisim = FakeData.NameData.GetSurname();
-            //MessageBox.Show(isim + " " + soyisim, "Fake Data İnceleme", MessageBoxButtons.OK);
+            //MessageBox.Show(isim + " " + soyisim, "Fake Data İnceleme", MessageBoxButtons.OK);  
 
             Database db = new Database();
             List<Musteri> musteriListe = db.musteriListele();
