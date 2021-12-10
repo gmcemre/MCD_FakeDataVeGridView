@@ -26,7 +26,7 @@ namespace MCD_FakeDataVeGridView
             Database db = new Database();
             List<Musteri> musteriListe = db.musteriListele();
 
-            // 1.Data bize lazım ama ekran üzerinde göstermek istemiyoruz bu gibi durumlarda columns koleksiyonu içinde ilgili kolonun id değeri veya tip prop adı verilerek Visible prop false edilmesi yeterlidir.
+            // 1.Data bize lazım ama ekran üzerinde göstermek istemiyoruz bu gibi durumlarda columns koleksiyonu içinde ilgili kolonun id değeri veya tip prop adı verilerek Visible prop false edilmesi yeterlidir..
             //dgwMusteriListe.DataSource = musteriListe;
             //dgwMusteriListe.Columns[0].Visible = false;
             //dgwMusteriListe.Columns["id"].Visible = true;
@@ -50,7 +50,6 @@ namespace MCD_FakeDataVeGridView
                            };
 
             dgwMusteriListe.DataSource = dgwListe.ToList();
-
         }
     }
 }
